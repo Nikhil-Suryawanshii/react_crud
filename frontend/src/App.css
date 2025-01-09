@@ -1,32 +1,66 @@
 /* app.css */
 
+/* Set a solid black background for the entire page */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7fafc;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  background-color: #000; /* Black background */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  color: #fff; /* White text for contrast */
 }
 
+/* Container styling */
 .container {
-  width: 100%;
   max-width: 600px;
-  background-color: #fff;
+  width: 100%;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.title {
-  font-size: 24px;
-  color: #2b6cb0;
-  margin-bottom: 20px;
+/* Input field styling */
+.create-input, .edit-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s ease;
 }
 
+.create-input::placeholder, .edit-input::placeholder {
+  color: #bbb;
+}
+
+.create-input:focus, .edit-input:focus {
+  background-color: #333;
+}
+
+/* Button styling */
+.create-button, .update-btn, .edit-btn, .delete-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-button:hover, .update-btn:hover, .edit-btn:hover, .delete-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Todo list styling */
 .todo-list {
   margin-top: 20px;
 }
@@ -35,69 +69,50 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  border-radius: 4px;
-  border: 1px solid #e2e8f0;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #111;
+  border-radius: 5px;
 }
 
 .todo-task {
-  font-size: 16px;
-}
-
-.todo-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.edit-btn {
-  background-color: #3182ce;
-  color: white;
-}
-
-.edit-btn:hover {
-  background-color: #2b6cb0;
-}
-
-.delete-btn {
-  background-color: #e53e3e;
-  color: white;
-}
-
-.delete-btn:hover {
-  background-color: #c53030;
-}
-
-.edit-container {
-  margin-top: 20px;
-}
-
-.edit-input {
-  width: calc(100% - 120px);
-  padding: 10px;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-}
-
-.update-btn {
-  background-color: #38a169;
-  color: white;
-}
-
-.update-btn:hover {
-  background-color: #2f855a;
-}
-
-.no-todos {
-  color: #718096;
   font-size: 18px;
+  color: #fff;
+}
+
+.todo-actions button {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #007BFF;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.todo-actions button:hover {
+  background-color: #007BFF;
+}
+
+/* Styling for 'No todos' message */
+.no-todos {
+  text-align: center;
+  font-size: 24px;
+  color: #bbb;
+}
+
+/* Subtle animations for elements */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.container, .todo-item, .create-button, .edit-btn, .delete-btn {
+  animation: fadeIn 0.5s ease-in-out;
 }
