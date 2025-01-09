@@ -38,8 +38,7 @@ function Home() {
 
   return (
     <div className="container">
-      <h2 className="title">Todo List</h2>
-      <Create />
+      <Create setTodos={setTodos} /> {/* Pass setTodos to Create component */}
       <div className="todo-list">
         {
           todos.length === 0 
