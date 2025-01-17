@@ -1,8 +1,28 @@
-const mongoose = require('mongoose')
+// models/Student.js
+const mongoose = require('mongoose');
 
-const CrudSchema = new mongoose.Schema({
-    crud: String
-})
+const StudentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  profilePhoto: {
+    type: String,
+    required: false,
+  },
+});
 
-const CrudModel = mongoose.model("student",CrudSchema)
-module.exports = CrudModel
+module.exports = mongoose.model('Student', StudentSchema);
